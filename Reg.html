@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--  *****   Link To favicons Fonts   *****  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!--  *****   Link To Favicon   *****  -->
+	<link rel="icon" type="image/png" href="images/home/logo.png">
+
+	<!--  *****   Link To Custom CSS Style Sheet   *****  -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<!--  *****   Link To Font Awsome Icons   *****  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+
+	<!--  *****   Link To Owl Carousel   *****  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <style>
+    /* Basic styling for the registration form */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #E4E9F4;
+    }
+
+    .registration-container {
+      width: 400px;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .registration-container h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .registration-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .registration-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #405694;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .registration-container button:hover {
+      background-color: #45a049;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Registration Container -->
+  <div class="registration-container">
+    <h2>Register</h2>
+    <div class="error-message" id="errorMessage">Please fill in all fields.</div>
+    <input type="text" id="firstname" placeholder="Firstname" required>
+    <input type="text" id="lastname" placeholder="Lastname" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <div class="error-message" id="errorP">Password must be at least 6 characters.</div>
+    <input type="password" id="password" placeholder="Password (min 6 characters)" minlength="6" required>
+    <button id="registerButton">Register</button>
+    <br><br>
+    <p>Already have an account?<a href="login.html"> Login here</a></p>
+  </div>
+
+  <script>
+    // Registration function
+    document.getElementById('registerButton').addEventListener('click', function() {
+      const firstname = document.getElementById('firstname').value;
+      const lastname = document.getElementById('lastname').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('errorMessage');
+      const errorP = document.getElementById('errorP');
+
+      // Reset error display
+      errorMessage.style.display = 'none';
+      errorP.style.display = 'none';
+
+      // Basic validation to check if fields are filled
+      if (firstname === "" || lastname === "" || email === "") {
+        errorMessage.style.display = 'block';
+        return; // Stop further execution if fields are empty
+      }
+
+      // Nested password validation
+      if (password.length < 6) {
+        errorP.style.display = 'block';
+        errorP.textContent = "Password must be at least 6 characters.";
+        return; // Stop further execution if password is invalid
+      }
+
+      // If all validations pass, proceed
+      alert("Registration successful!");
+
+      // Optionally, here you could send form data to a server
+     window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
