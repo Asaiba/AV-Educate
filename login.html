@@ -95,8 +95,11 @@
   <script>
     // Mock credentials and session token
     const mockUsername = "user";
-    const mockPassword = "password";
+    const mockPassword = "password1";
     const mockSessionToken = "user-session-token";
+    const tUsername = "facilitator";
+    const tPassword = "password2";
+    const tSessionToken = "user-session-token";
 
     // Login function
     document.getElementById('loginButton').addEventListener('click', function() {
@@ -108,7 +111,14 @@
         // Successful login: store session token in localStorage
         localStorage.setItem('sessionToken', mockSessionToken);
         window.location.href = 'dash.html';
-      } else {
+      }
+      else if (username === tUsername && password === tPassword) {
+        // Successful login: store session token in localStorage
+        localStorage.setItem('sessionToken', tSessionToken);
+        window.location.href = 'tdash.html';
+      }
+      
+      else {
         // Display error message
         document.getElementById('errorMessage').style.display = 'block';
       }
