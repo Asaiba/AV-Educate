@@ -686,6 +686,29 @@ a{
 .course-card .course-ratings span b{
 	font-size: 24px;
 }
+.book{
+	margin-left: 60px;
+	font-size: 16px;
+}
+.BookSession{
+	color: var(--primary-clr);
+	font-weight: bold;
+	border-radius: 10%;
+}
+.styled-date{
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	padding: 2px;
+	margin-left: 40px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	outline: none;
+	width: 80%;
+	box-sizing: border-box;
+}
+.styled-date:focus{
+	border-color: var(--primary-clr);
+}
 /*   === Courses Section Styling Ends ===   */
 
 /*   === Courses Categories Section Styling Starts ===   */
